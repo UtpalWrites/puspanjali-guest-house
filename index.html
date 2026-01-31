@@ -286,7 +286,7 @@
             
             <div class="room-card">
                 <div class="room-image">
-                    <img src="economy_single.jpg" alt="Single Room Economy Photo">
+                    <img src="economy_single.jpg" alt="Single Room Economy">
                 </div>
                 <div class="room-header">
                     <h4>Single Bed Economy</h4>
@@ -303,7 +303,7 @@
 
             <div class="room-card">
                 <div class="room-image">
-                    <img src="economy_double.jpg" alt="Double Room Economy Photo">
+                    <img src="economy_double.jpg" alt="Double Room Economy">
                 </div>
                 <div class="room-header">
                     <h4>Double Bed Economy</h4>
@@ -321,7 +321,7 @@
 
             <div class="room-card">
                 <div class="room-image">
-                    <img src="deluxe_single.jpg" alt="Single Room Deluxe Photo">
+                    <img src="deluxe_single.jpg" alt="Single Room Deluxe">
                 </div>
                 <div class="room-header">
                     <h4>Single Bed Deluxe</h4>
@@ -338,7 +338,7 @@
 
              <div class="room-card">
                 <div class="room-image">
-                    <img src="deluxe_double.jpg" alt="Double Room Deluxe Photo">
+                    <img src="deluxe_double.jpg" alt="Double Room Deluxe">
                 </div>
                 <div class="room-header">
                     <h4>Double Bed Deluxe</h4>
@@ -407,19 +407,19 @@
             <form id="bookingForm" onsubmit="handleBooking(event)">
                 <div class="form-group">
                     <label>Your Name</label>
-                    <input type="text" placeholder="Enter your full name" required>
+                    <input type="text" id="name" placeholder="Enter your full name" required>
                 </div>
                 <div class="form-group">
                     <label>Phone Number</label>
-                    <input type="tel" placeholder="+91 XXXXX XXXXX" required>
+                    <input type="tel" id="phone" placeholder="+91 XXXXX XXXXX" required>
                 </div>
                 <div class="form-group">
                     <label>Check-in Date</label>
-                    <input type="date" required>
+                    <input type="date" id="date" required>
                 </div>
                 <div class="form-group">
                     <label>Select Room Type</label>
-                    <select>
+                    <select id="room">
                         <option>Single Bed Economy (Non-AC) - ₹1200</option>
                         <option>Double Bed Economy (Non-AC) - ₹2000</option>
                         <option>Single Bed Deluxe (AC) - ₹2500</option>
@@ -428,9 +428,9 @@
                 </div>
                 <div class="form-group">
                     <label>Message (Optional)</label>
-                    <textarea rows="3" placeholder="Any special requests?"></textarea>
+                    <textarea id="message" rows="3" placeholder="Any special requests?"></textarea>
                 </div>
-                <button type="submit" class="btn-book">Send Booking Request</button>
+                <button type="submit" class="btn-book"><i class="fab fa-whatsapp"></i> Send Booking via WhatsApp</button>
             </form>
         </div>
 
@@ -444,9 +444,30 @@
 
     <script>
         function handleBooking(event) {
-            event.preventDefault();
-            alert("Thank you! We have received your request. We will contact you at +91 84358 32929 shortly to confirm your booking.");
-            document.getElementById('bookingForm').reset();
+            event.preventDefault(); // Stop the form from refreshing the page
+
+            // 1. Get the values the customer typed
+            var name = document.getElementById('name').value;
+            var phone = document.getElementById('phone').value;
+            var date = document.getElementById('date').value;
+            var room = document.getElementById('room').value;
+            var userMsg = document.getElementById('message').value;
+
+            // 2. Create the WhatsApp message
+            var whatsappMessage = 
+                "Namaskar! I would like to book a room.%0A" + 
+                "--------------------------------%0A" +
+                "*Name:* " + name + "%0A" +
+                "*Phone:* " + phone + "%0A" +
+                "*Check-in:* " + date + "%0A" +
+                "*Room:* " + room + "%0A" +
+                "*Note:* " + userMsg;
+
+            // 3. Create the WhatsApp Link (Using your number)
+            var whatsappUrl = "https://wa.me/918435832929?text=" + whatsappMessage;
+
+            // 4. Open WhatsApp
+            window.open(whatsappUrl, '_blank');
         }
     </script>
 
