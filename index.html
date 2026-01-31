@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puspanjali Guest House | Kamakhya</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* --- TEMPLE VIBE THEME --- */
+        :root {
+            --saffron: #FF9933;
+            --deep-red: #8B0000;
+            --gold: #FFD700;
+            --cream: #FFF8E7;
+            --text-dark: #333;
+            --whatsapp-green: #25D366;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--cream);
+            color: var(--text-dark);
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--deep-red);
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav h1 {
+            color: var(--gold);
+            margin: 0;
+            font-size: 2.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        nav p {
+            color: white;
+            margin: 5px 0 0;
+            font-style: italic;
+            font-size: 1rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            /* Rename your main banner photo to 'temple.jpg' */
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('temple.jpg');
+            background-color: var(--deep-red); /* Fallback color */
+            background-size: cover;
+            background-position: center;
+            height: 500px; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        .hero-text h2 {
+            font-size: 3.5rem;
+            text-shadow: 3px 3px 6px black;
+            border-bottom: 4px solid var(--saffron);
+            display: inline-block;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+        .hero-text p {
+            font-size: 1.5rem;
+            text-shadow: 2px 2px 4px black;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        /* Section Headings */
+        h3.section-title {
+            text-align: center;
+            color: var(--deep-red);
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            text-decoration: underline var(--saffron);
+        }
+
+        /* Rooms Grid */
+        .rooms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        .room-card {
+            background: white;
+            border: 2px solid var(--saffron);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        .room-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Room Image Styling */
+        .room-image {
+            height: 200px;
+            width: 100%;
+            background-color: #ddd; /* Gray placeholder if image is missing */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .room-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .room-header {
+            background-color: var(--deep-red);
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        .room-header h4 {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+        .room-details {
+            padding: 20px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .room-features {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 15px;
+        }
+        .room-features p {
+            margin: 8px 0;
+        }
+        .price {
+            color: var(--deep-red);
+            font-weight: bold;
+            font-size: 1.4rem;
+            margin-top: 10px;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+        }
+
+        /* Contact & Map Section */
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 50px;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            border-left: 6px solid var(--deep-red);
+        }
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        .map-box {
+            flex: 1;
+            min-width: 300px;
+            height: 350px;
+            background: #eee;
+            border-radius: 5px;
+            overflow: hidden;
+            border: 1px solid #ddd;
+        }
+        .contact-item {
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: flex-start;
+        }
+        .contact-item i {
+            color: var(--deep-red);
+            width: 40px;
+            font-size: 1.4rem;
+            margin-top: 3px;
+        }
+        .whatsapp-btn {
+            display: inline-block;
+            background-color: var(--whatsapp-green);
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            margin-top: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: background-color 0.2s;
+        }
+        .whatsapp-btn:hover {
+            background-color: #1ebe57;
+        }
+        a { color: var(--text-dark); text-decoration: none; }
+        a:hover { color: var(--deep-red); }
+
+        /* Booking Form */
+        .booking-section {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            border-top: 6px solid var(--saffron);
+            margin-top: 60px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; color: var(--deep-red); font-weight: bold; }
+        input, select, textarea { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; font-size: 1rem; }
+        button.btn-book {
+            background-color: var(--deep-red);
+            color: var(--gold);
+            width: 100%;
+            padding: 18px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+        button.btn-book:hover { background-color: #660000; }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-dark);
+            color: var(--cream);
+            text-align: center;
+            padding: 30px;
+            margin-top: 60px;
+            border-top: 5px solid var(--saffron);
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <h1>Puspanjali Guest House</h1>
+        <p>Your Spiritual Home Near Kamakhya Temple</p>
+    </nav>
+
+    <div class="hero">
+        <div class="hero-text">
+            <h2>Welcome to Nilachal Hill</h2>
+            <p>Peace • Prayer • Comfort</p>
+        </div>
+    </div>
+
+    <div class="container">
+        
+        <div style="text-align: center; margin-bottom: 60px; max-width: 800px; margin-left: auto; margin-right: auto;">
+            <i class="fas fa-om" style="font-size: 3rem; color: var(--saffron); margin-bottom: 20px;"></i>
+            <p style="font-size: 1.3rem; line-height: 1.8;">
+                Namaskar! Welcome to <strong>Puspanjali Guest House</strong>. <br>
+                We are located just steps away from the holy Maa Kamakhya Temple. 
+                Whether you are here for darshan or to explore Guwahati, we offer you a clean, safe, and homely stay.
+            </p>
+        </div>
+
+        <h3 class="section-title">Our Rooms & Tariffs</h3>
+        <div class="rooms-grid">
+            
+            <div class="room-card">
+                <div class="room-image">
+                    <img src="economy_single.jpg" alt="Single Room Economy Photo">
+                </div>
+                <div class="room-header">
+                    <h4>Single Bed Economy</h4>
+                </div>
+                <div class="room-details">
+                    <div class="room-features">
+                        <p><i class="fas fa-bed"></i> 1 Single Bed</p>
+                        <p><i class="fas fa-wind"></i> Non-AC</p>
+                        <p><i class="fas fa-wifi"></i> Free Wi-Fi</p>
+                    </div>
+                    <div class="price">₹1,200 / night</div>
+                </div>
+            </div>
+
+            <div class="room-card">
+                <div class="room-image">
+                    <img src="economy_double.jpg" alt="Double Room Economy Photo">
+                </div>
+                <div class="room-header">
+                    <h4>Double Bed Economy</h4>
+                </div>
+                <div class="room-details">
+                    <div class="room-features">
+                        <p><i class="fas fa-bed"></i> 1 Double Bed</p>
+                        <p><i class="fas fa-wind"></i> Non-AC</p>
+                        <p><i class="fas fa-users"></i> For Couples/Friends</p>
+                        <p><i class="fas fa-wifi"></i> Free Wi-Fi</p>
+                    </div>
+                    <div class="price">₹2,000 / night</div>
+                </div>
+            </div>
+
+            <div class="room-card">
+                <div class="room-image">
+                    <img src="deluxe_single.jpg" alt="Single Room Deluxe Photo">
+                </div>
+                <div class="room-header">
+                    <h4>Single Bed Deluxe</h4>
+                </div>
+                <div class="room-details">
+                    <div class="room-features">
+                        <p><i class="fas fa-bed"></i> 1 Single Bed</p>
+                        <p><i class="fas fa-snowflake"></i> <strong>AC Room</strong></p>
+                        <p><i class="fas fa-wifi"></i> High Speed Wi-Fi</p>
+                    </div>
+                    <div class="price">₹2,500 / night</div>
+                </div>
+            </div>
+
+             <div class="room-card">
+                <div class="room-image">
+                    <img src="deluxe_double.jpg" alt="Double Room Deluxe Photo">
+                </div>
+                <div class="room-header">
+                    <h4>Double Bed Deluxe</h4>
+                </div>
+                <div class="room-details">
+                    <div class="room-features">
+                        <p><i class="fas fa-bed"></i> 1 Double Bed</p>
+                        <p><i class="fas fa-snowflake"></i> <strong>AC Room</strong></p>
+                        <p><i class="fas fa-wifi"></i> High Speed Wi-Fi</p>
+                    </div>
+                    <div class="price">₹3,500 / night</div>
+                </div>
+            </div>
+
+        </div>
+
+        <h3 class="section-title">Visit Us</h3>
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <strong>Address:</strong><br>
+                        Puspanjali Guest House,<br>
+                        Near Kamakhya Temple, Guwahati, Assam
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <strong>Phone / WhatsApp:</strong><br>
+                        <a href="tel:+918435832929" style="font-size: 1.2rem; font-weight: bold;">+91 84358 32929</a>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <strong>Email:</strong><br>
+                        <a href="mailto:puspanjalikamakhya@gmail.com">puspanjalikamakhya@gmail.com</a>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 30px;">
+                    <a href="https://wa.me/918435832929" class="whatsapp-btn" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <div class="map-box">
+                <iframe 
+                    width="100%" 
+                    height="100%" 
+                    frameborder="0" 
+                    style="border:0" 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3581.332306231923!2d91.70327731502904!3d26.16766898345437!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375a5936307137b1%3A0xc3f587d558189874!2sKamakhya%20Temple!5e0!3m2!1sen!2sin!4v1644312345678!5m2!1sen!2sin" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+
+        <h3 class="section-title" id="book">Book Your Stay</h3>
+        <div class="booking-section">
+            <form id="bookingForm" onsubmit="handleBooking(event)">
+                <div class="form-group">
+                    <label>Your Name</label>
+                    <input type="text" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" placeholder="+91 XXXXX XXXXX" required>
+                </div>
+                <div class="form-group">
+                    <label>Check-in Date</label>
+                    <input type="date" required>
+                </div>
+                <div class="form-group">
+                    <label>Select Room Type</label>
+                    <select>
+                        <option>Single Bed Economy (Non-AC) - ₹1200</option>
+                        <option>Double Bed Economy (Non-AC) - ₹2000</option>
+                        <option>Single Bed Deluxe (AC) - ₹2500</option>
+                        <option>Double Bed Deluxe (AC) - ₹3500</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Message (Optional)</label>
+                    <textarea rows="3" placeholder="Any special requests?"></textarea>
+                </div>
+                <button type="submit" class="btn-book">Send Booking Request</button>
+            </form>
+        </div>
+
+    </div>
+
+    <footer>
+        <p><strong>Puspanjali Guest House</strong><br>Near Kamakhya Temple, Guwahati, Assam</p>
+        <p>Email: puspanjalikamakhya@gmail.com | Phone: +91 84358 32929</p>
+        <p style="font-size: 0.8rem; color: #aaa; margin-top: 10px;">© 2026 Puspanjali Guest House</p>
+    </footer>
+
+    <script>
+        function handleBooking(event) {
+            event.preventDefault();
+            alert("Thank you! We have received your request. We will contact you at +91 84358 32929 shortly to confirm your booking.");
+            document.getElementById('bookingForm').reset();
+        }
+    </script>
+
+</body>
+</html>
