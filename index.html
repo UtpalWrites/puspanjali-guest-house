@@ -132,7 +132,8 @@
             display: none;
             width: 100%;
             height: 100%;
-            padding: 20px 4%;
+            padding: 16px 4%;
+            overflow-y: auto;
             animation: fadeIn 0.35s ease;
         }
 
@@ -228,15 +229,15 @@
         /* --- TAB 2: ROOMS --- */
         .section-top {
             text-align: center;
-            margin-bottom: 14px;
+            margin-bottom: 12px;
             width: 100%;
             max-width: 1150px;
         }
 
         .section-top h3 {
             color: var(--vermilion);
-            font-size: 1.65rem;
-            margin-bottom: 6px;
+            font-size: 1.55rem;
+            margin-bottom: 4px;
         }
 
         .season-pill {
@@ -351,31 +352,38 @@
             color: var(--gold);
         }
 
-        /* --- TAB 3: LOCATION & CONTACT --- */
+        /* --- TAB 3: LOCATION, CONTACT & 5-STAR REVIEWS --- */
+        .visit-wrapper {
+            width: 100%;
+            max-width: 1080px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
         .contact-grid {
             display: grid;
-            grid-template-columns: 1fr 1.3fr;
-            gap: 24px;
-            width: 100%;
-            max-width: 1000px;
+            grid-template-columns: 1fr 1.35fr;
+            gap: 20px;
             background: white;
-            padding: 24px;
+            padding: 18px 22px;
             border-radius: 14px;
             border: 1px solid rgba(212, 175, 55, 0.35);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+            align-items: center;
         }
 
         .contact-item {
             display: flex;
             align-items: flex-start;
             gap: 12px;
-            margin-bottom: 18px;
-            font-size: 0.9rem;
+            margin-bottom: 12px;
+            font-size: 0.86rem;
         }
 
         .contact-icon {
-            width: 38px;
-            height: 38px;
+            width: 34px;
+            height: 34px;
             background: var(--sand);
             color: var(--vermilion);
             border-radius: 50%;
@@ -383,13 +391,15 @@
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
+            font-size: 0.9rem;
         }
 
         .contact-item strong {
             display: block;
             color: var(--vermilion);
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
+            letter-spacing: 0.4px;
         }
 
         .contact-item a {
@@ -404,19 +414,87 @@
             gap: 8px;
             background: var(--whatsapp);
             color: white;
-            padding: 10px 22px;
+            padding: 8px 20px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 500;
-            font-size: 0.88rem;
-            margin-top: 6px;
+            font-size: 0.84rem;
+            margin-top: 4px;
         }
 
         .map-box {
-            height: 310px;
+            height: 225px;
             border-radius: 10px;
             overflow: hidden;
             border: 1px solid rgba(212, 175, 55, 0.35);
+        }
+
+        /* 5-Star Reviews Strip */
+        .reviews-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 4px;
+        }
+
+        .reviews-header h4 {
+            color: var(--vermilion);
+            font-size: 1.05rem;
+        }
+
+        .rating-summary {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .stars {
+            color: #F59E0B;
+            font-size: 0.82rem;
+            letter-spacing: 1px;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+        }
+
+        .review-card {
+            background: white;
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            border-left: 3px solid var(--gold);
+            border-radius: 10px;
+            padding: 13px 15px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .review-text {
+            font-size: 0.8rem;
+            color: var(--text-dark);
+            line-height: 1.45;
+            margin: 6px 0 8px;
+            font-style: italic;
+        }
+
+        .reviewer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--sand);
+            padding-top: 6px;
+        }
+
+        .reviewer strong {
+            color: var(--vermilion);
+            font-weight: 600;
         }
 
         /* --- TAB 4: BOOKING FORM --- */
@@ -520,13 +598,18 @@
             .rooms-grid {
                 grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             }
-            .contact-grid, .form-grid {
+            .contact-grid, .form-grid, .reviews-grid {
                 grid-template-columns: 1fr;
+            }
+            .reviews-header {
+                flex-direction: column;
+                gap: 4px;
+                text-align: center;
             }
             #home {
                 min-height: 70vh;
                 padding: 20px;
-                background-size: cover; /* Prevents squishing on narrow mobile screens */
+                background-size: cover;
             }
             .hero-box h2 {
                 font-size: 1.8rem;
@@ -666,53 +749,106 @@
             </div>
         </section>
 
-        <!-- TAB 3: LOCATION & CONTACT -->
+        <!-- TAB 3: LOCATION, CONTACT & REVIEWS -->
         <section id="visit" class="tab-section">
-            <div class="section-top">
-                <h3>Visit Us</h3>
-            </div>
-            <div class="contact-grid">
-                <div>
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-                        <div>
-                            <strong>Address</strong>
-                            Puspanjali Guest House,<br>
-                            Near Kamakhya Temple, Nilachal Hill,<br>
-                            Guwahati, Assam
+            <div class="visit-wrapper">
+                <div class="contact-grid">
+                    <div>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div>
+                                <strong>Address</strong>
+                                Puspanjali Guest House, Near Kamakhya Temple,<br>
+                                Nilachal Hill, Guwahati, Assam
+                            </div>
                         </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+                            <div>
+                                <strong>Phone / WhatsApp</strong>
+                                <a href="tel:+918435832929">+91 84358 32929</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                            <div>
+                                <strong>Email</strong>
+                                <a href="mailto:puspanjalikamakhya@gmail.com">puspanjalikamakhya@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <a href="https://wa.me/918435832929" class="whatsapp-btn" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Chat Directly on WhatsApp
+                        </a>
                     </div>
 
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
-                        <div>
-                            <strong>Phone / WhatsApp</strong>
-                            <a href="tel:+918435832929">+91 84358 32929</a>
-                        </div>
+                    <div class="map-box">
+                        <iframe 
+                            width="100%" 
+                            height="100%" 
+                            frameborder="0" 
+                            style="border:0" 
+                            src="https://maps.google.com/maps?q=Puspanjali%20Guest%20House%20Kamakhya%20Temple%20Guwahati&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                            allowfullscreen>
+                        </iframe>
                     </div>
-
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                        <div>
-                            <strong>Email</strong>
-                            <a href="mailto:puspanjalikamakhya@gmail.com">puspanjalikamakhya@gmail.com</a>
-                        </div>
-                    </div>
-
-                    <a href="https://wa.me/918435832929" class="whatsapp-btn" target="_blank">
-                        <i class="fab fa-whatsapp"></i> Chat Directly on WhatsApp
-                    </a>
                 </div>
 
-                <div class="map-box">
-                    <iframe 
-                        width="100%" 
-                        height="100%" 
-                        frameborder="0" 
-                        style="border:0" 
-                        src="https://maps.google.com/maps?q=Puspanjali%20Guest%20House%20Kamakhya%20Temple%20Guwahati&t=&z=15&ie=UTF8&iwloc=&output=embed" 
-                        allowfullscreen>
-                    </iframe>
+                <!-- 5-STAR PUBLIC REVIEWS -->
+                <div class="reviews-header">
+                    <h4><i class="fas fa-award" style="color: var(--saffron);"></i> Guest Reviews</h4>
+                    <div class="rating-summary">
+                        <span class="stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </span>
+                        <strong>5.0 / 5</strong> (Pilgrim & Family Rated)
+                    </div>
+                </div>
+
+                <div class="reviews-grid">
+                    <div class="review-card">
+                        <div>
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="review-text">"Stayed here during our Maa Kamakhya trip and honestly had a really good experience. The location is super convenient since the temple is nearby which made traveling around very easy. The place also has a calm and peaceful vibe, perfect after a long day out.
+
+Rooms were clean, comfortable, and budget friendly. The staff is polite and helpful throughout the stay, which made it feel more welcoming and homely. Overall, a great option if you’re looking for a decent and affordable place near the temple. Would definitely recommend it.."</p>
+                        </div>
+                        <div class="reviewer">
+                            <strong>Harshit Pratap S</strong>
+                            <span>Verified Stay</span>
+                        </div>
+                    </div>
+
+                    <div class="review-card">
+                        <div>
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="review-text">"Good clean rooms and washroom. Staff behaviour was very nice..most importantly the distance from kamakhya devi tample is walkable.."</p>
+                        </div>
+                        <div class="reviewer">
+                            <strong>shubham chourasiya</strong>
+                            <span>Verified Stay</span>
+                        </div>
+                    </div>
+
+                    <div class="review-card">
+                        <div>
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="review-text">"This my first time in Assam. Found this property very near to Shi Kamakhya Temple, Rooms are very neat and clean also Management is so polite and helpful.
+Choose this Hotel definitely if you are visiting Kamakhya Temple."</p>
+                        </div>
+                        <div class="reviewer">
+                            <strong>Kapil R Fauzdar</strong>
+                            <span>Verified Stay</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
