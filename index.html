@@ -3,353 +3,347 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Puspanjali Guest House | Sacred Stay Near Maa Kamakhya Temple</title>
-    
-    <!-- Modern & Spiritual Google Fonts -->
+    <title>Puspanjali Guest House | Maa Kamakhya</title>
+
+    <!-- Fonts: Cinzel (Spiritual), Poppins (Modern), Noto Serif Devanagari (Sanskrit Mantra) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Noto+Serif+Devanagari:wght@500;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome Icons -->
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <style>
-        /* --- MODERN SPIRITUAL THEME --- */
         :root {
-            --vermilion: #7A1414;      /* Deep sacred maroon/red */
-            --vermilion-light: #9E1B1B;
-            --saffron: #D97706;        /* Warm temple saffron */
-            --gold: #C89D3C;           /* Subtle divine gold */
-            --ivory: #FDFBF7;          /* Sandalwood/ivory background */
-            --sand: #F4EFE6;           /* Soft warm accent background */
+            --vermilion: #7A1414;
+            --vermilion-dark: #4E0A0A;
+            --saffron: #D97706;
+            --gold: #D4AF37;
+            --ivory: #FDFBF7;
+            --sand: #F4EFE6;
             --text-dark: #2C2420;
             --text-muted: #645A54;
             --whatsapp: #25D366;
         }
 
-        html {
-            scroll-behavior: smooth;
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
             font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
             background-color: var(--ivory);
             color: var(--text-dark);
-            line-height: 1.7;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
         }
 
         h1, h2, h3, h4 {
             font-family: 'Cinzel', serif;
-            font-weight: 600;
-            margin-top: 0;
         }
 
-        /* --- NAVIGATION --- */
+        /* --- 1. TOP MANTRA BAR --- */
+        .mantra-bar {
+            background: linear-gradient(90deg, var(--vermilion-dark), var(--vermilion), var(--vermilion-dark));
+            color: var(--gold);
+            text-align: center;
+            padding: 8px 15px;
+            font-family: 'Noto Serif Devanagari', serif;
+            font-size: 0.95rem;
+            letter-spacing: 0.4px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.4);
+            flex-shrink: 0;
+        }
+
+        /* --- 2. COMPACT NAVIGATION BAR --- */
         nav {
-            background: rgba(122, 20, 20, 0.96);
-            backdrop-filter: blur(8px);
-            padding: 15px 5%;
+            background: white;
+            padding: 10px 4%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
             border-bottom: 2px solid var(--gold);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .brand {
-            text-align: left;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+            flex-shrink: 0;
         }
 
         .brand h1 {
-            color: var(--gold);
-            margin: 0;
-            font-size: 1.5rem;
-            letter-spacing: 1.5px;
+            color: var(--vermilion);
+            font-size: 1.35rem;
+            letter-spacing: 1px;
+            line-height: 1.1;
         }
 
         .brand p {
-            color: rgba(255, 255, 255, 0.85);
-            margin: 0;
-            font-size: 0.78rem;
-            letter-spacing: 1px;
+            font-size: 0.72rem;
+            color: var(--text-muted);
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .nav-links {
-            list-style: none;
+        .nav-tabs {
             display: flex;
-            gap: 25px;
-            margin: 0;
-            padding: 0;
+            gap: 8px;
         }
 
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 400;
-            letter-spacing: 0.5px;
-            transition: color 0.3s;
+        .tab-btn {
+            background: transparent;
+            border: 1.5px solid transparent;
+            color: var(--text-dark);
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
-        .nav-links a:hover {
+        .tab-btn:hover {
+            color: var(--vermilion);
+            background: var(--sand);
+        }
+
+        .tab-btn.active {
+            background: var(--vermilion);
             color: var(--gold);
+            border-color: var(--vermilion);
+            box-shadow: 0 3px 10px rgba(122, 20, 20, 0.2);
         }
 
-        /* --- HERO SECTION --- */
-        .hero {
-            background: linear-gradient(180deg, rgba(44, 12, 12, 0.55) 0%, rgba(44, 12, 12, 0.78) 100%), url('temple.jpg');
-            background-color: var(--vermilion);
-            background-size: cover;
-            background-position: center;
-            min-height: 75vh;
+        /* --- 3. MAIN CONTENT AREA --- */
+        main {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
+        }
+
+        .tab-section {
+            display: none;
+            width: 100%;
+            height: 100%;
+            padding: 20px 4%;
+            animation: fadeIn 0.35s ease;
+        }
+
+        .tab-section.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- TAB 1: HOME (FULL-WIDTH FIT, NO SIDE BARS) --- */
+        #home {
+            padding: 0;
+            background-color: var(--vermilion-dark);
+            background-image: linear-gradient(180deg, rgba(44, 12, 12, 0.42) 0%, rgba(44, 12, 12, 0.68) 100%), url('temple.jpg');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-position: center;
             color: white;
-            padding: 40px 20px;
-        }
-
-        .hero-content {
-            max-width: 800px;
-        }
-
-        .sacred-chant {
-            color: var(--gold);
-            font-family: 'Cinzel', serif;
-            font-size: 1.1rem;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .hero-content h2 {
-            font-size: 3.4rem;
-            margin-bottom: 15px;
-            line-height: 1.2;
-            text-shadow: 0 4px 15px rgba(0,0,0,0.5);
-        }
-
-        .hero-content p {
-            font-size: 1.15rem;
-            font-weight: 300;
-            color: rgba(255, 255, 255, 0.92);
-            margin-bottom: 30px;
-            letter-spacing: 1px;
-        }
-
-        .hero-btn {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--gold), #A87E22);
-            color: #1F1209;
-            padding: 14px 36px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            box-shadow: 0 6px 20px rgba(200, 157, 60, 0.4);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .hero-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(200, 157, 60, 0.55);
-        }
-
-        /* --- CONTAINER & DIVIDERS --- */
-        .container {
-            max-width: 1140px;
-            margin: 0 auto;
-            padding: 70px 20px;
-        }
-
-        .section-header {
             text-align: center;
-            margin-bottom: 50px;
         }
 
-        .section-header h3 {
-            color: var(--vermilion);
+        .hero-box {
+            max-width: 760px;
+            padding: 35px 30px;
+            background: rgba(34, 12, 12, 0.48);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(212, 175, 55, 0.45);
+            border-radius: 16px;
+        }
+
+        .hero-box .om-icon {
             font-size: 2.2rem;
+            color: var(--gold);
             margin-bottom: 10px;
         }
 
-        .divider {
+        .hero-box h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-box p {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.92);
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .hero-actions {
             display: flex;
-            align-items: center;
+            gap: 14px;
             justify-content: center;
-            gap: 12px;
-            margin-bottom: 15px;
+            flex-wrap: wrap;
         }
 
-        .divider span {
-            height: 1px;
-            width: 60px;
-            background: var(--gold);
+        .btn-gold {
+            background: linear-gradient(135deg, var(--gold), #B38728);
+            color: #1F1209;
+            border: none;
+            padding: 11px 26px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.2s;
         }
 
-        .divider i {
-            color: var(--saffron);
-            font-size: 1.2rem;
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 1.5px solid var(--gold);
+            padding: 11px 26px;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.2s;
         }
 
-        .section-subtitle {
-            color: var(--text-muted);
-            max-width: 650px;
-            margin: 0 auto;
-            font-size: 0.98rem;
+        .btn-gold:hover, .btn-outline:hover {
+            transform: translateY(-2px);
         }
 
-        /* --- WELCOME SECTION --- */
-        .welcome-box {
-            background: var(--sand);
-            border: 1px solid rgba(200, 157, 60, 0.35);
-            border-radius: 16px;
-            padding: 50px 30px;
+        /* --- TAB 2: ROOMS --- */
+        .section-top {
             text-align: center;
-            max-width: 900px;
-            margin: 0 auto 70px;
-            box-shadow: 0 10px 30px rgba(122, 20, 20, 0.04);
+            margin-bottom: 14px;
+            width: 100%;
+            max-width: 1150px;
         }
 
-        .welcome-box i.fa-om {
-            font-size: 2.6rem;
+        .section-top h3 {
             color: var(--vermilion);
-            margin-bottom: 18px;
+            font-size: 1.65rem;
+            margin-bottom: 6px;
         }
 
-        .welcome-box p {
-            font-size: 1.08rem;
-            color: var(--text-dark);
-            max-width: 720px;
-            margin: 0 auto;
-        }
-
-        /* --- ROOMS GRID --- */
-        .season-notice {
+        .season-pill {
+            display: inline-block;
             background: #FFF7E6;
-            border-left: 4px solid var(--saffron);
-            padding: 14px 20px;
-            border-radius: 8px;
-            max-width: 750px;
-            margin: 0 auto 40px;
-            font-size: 0.92rem;
+            border: 1px solid #F3D19E;
             color: #6B3F00;
-            text-align: center;
+            padding: 5px 16px;
+            border-radius: 50px;
+            font-size: 0.8rem;
         }
 
         .rooms-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 28px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            width: 100%;
+            max-width: 1150px;
         }
 
         .room-card {
             background: white;
-            border-radius: 16px;
+            border-radius: 12px;
             overflow: hidden;
-            border: 1px solid rgba(200, 157, 60, 0.3);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-            transition: transform 0.35s ease, box-shadow 0.35s ease;
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
             display: flex;
             flex-direction: column;
+            transition: transform 0.25s;
         }
 
         .room-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 16px 35px rgba(122, 20, 20, 0.12);
+            transform: translateY(-4px);
         }
 
         .room-image {
-            height: 210px;
+            height: 140px;
             width: 100%;
-            background-color: #EAE4DC;
-            overflow: hidden;
+            background: #EAE4DC;
             position: relative;
+            overflow: hidden;
         }
 
         .room-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .room-card:hover .room-image img {
-            transform: scale(1.06);
         }
 
         .room-badge {
             position: absolute;
-            top: 12px;
-            right: 12px;
-            background: rgba(122, 20, 20, 0.88);
+            top: 8px;
+            right: 8px;
+            background: rgba(122, 20, 20, 0.9);
             color: var(--gold);
-            padding: 4px 12px;
+            padding: 3px 10px;
             border-radius: 20px;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 500;
-            letter-spacing: 0.5px;
         }
 
-        .room-details {
-            padding: 24px 20px;
-            flex-grow: 1;
+        .room-body {
+            padding: 14px;
+            flex: 1;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            text-align: center;
         }
 
-        .room-details h4 {
+        .room-body h4 {
             color: var(--vermilion);
-            font-size: 1.25rem;
-            margin-bottom: 16px;
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+            text-align: center;
         }
 
         .room-features {
             list-style: none;
-            padding: 0;
-            margin: 0 0 22px;
-            text-align: left;
-            font-size: 0.92rem;
+            font-size: 0.82rem;
             color: var(--text-muted);
+            margin-bottom: 12px;
         }
 
         .room-features li {
-            margin-bottom: 10px;
+            margin-bottom: 6px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         .room-features i {
             color: var(--saffron);
-            width: 18px;
+            width: 15px;
             text-align: center;
         }
 
         .inquire-btn {
-            display: block;
-            background: transparent;
+            width: 100%;
+            background: var(--sand);
             color: var(--vermilion);
-            border: 1.5px solid var(--vermilion);
-            padding: 10px 16px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9rem;
-            transition: all 0.3s;
+            border: 1px solid var(--vermilion);
+            padding: 8px;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            font-weight: 600;
             cursor: pointer;
+            transition: all 0.2s;
         }
 
         .inquire-btn:hover {
@@ -357,44 +351,45 @@
             color: var(--gold);
         }
 
-        /* --- CONTACT & MAP --- */
-        .contact-container {
+        /* --- TAB 3: LOCATION & CONTACT --- */
+        .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 24px;
+            width: 100%;
+            max-width: 1000px;
             background: white;
-            padding: 35px;
-            border-radius: 16px;
-            border: 1px solid rgba(200, 157, 60, 0.3);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            padding: 24px;
+            border-radius: 14px;
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
         }
 
         .contact-item {
             display: flex;
             align-items: flex-start;
-            gap: 16px;
-            margin-bottom: 24px;
+            gap: 12px;
+            margin-bottom: 18px;
+            font-size: 0.9rem;
         }
 
         .contact-icon {
-            width: 44px;
-            height: 44px;
+            width: 38px;
+            height: 38px;
             background: var(--sand);
             color: var(--vermilion);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.1rem;
             flex-shrink: 0;
         }
 
         .contact-item strong {
             display: block;
             color: var(--vermilion);
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
 
         .contact-item a {
@@ -403,232 +398,199 @@
             font-weight: 500;
         }
 
-        .contact-item a:hover {
-            color: var(--vermilion);
-        }
-
         .whatsapp-btn {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            background-color: var(--whatsapp);
-            color: white !important;
-            padding: 12px 28px;
+            gap: 8px;
+            background: var(--whatsapp);
+            color: white;
+            padding: 10px 22px;
             border-radius: 50px;
-            font-weight: 500;
             text-decoration: none;
-            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.3);
-            transition: transform 0.2s, background 0.2s;
-            margin-top: 10px;
-        }
-
-        .whatsapp-btn:hover {
-            background-color: #1ebe57;
-            transform: translateY(-2px);
+            font-weight: 500;
+            font-size: 0.88rem;
+            margin-top: 6px;
         }
 
         .map-box {
-            height: 360px;
-            border-radius: 12px;
+            height: 310px;
+            border-radius: 10px;
             overflow: hidden;
-            border: 1px solid rgba(200, 157, 60, 0.3);
+            border: 1px solid rgba(212, 175, 55, 0.35);
         }
 
-        /* --- BOOKING FORM --- */
-        .booking-section {
+        /* --- TAB 4: BOOKING FORM --- */
+        .booking-card {
             background: white;
-            padding: 45px 35px;
-            border-radius: 16px;
-            max-width: 750px;
-            margin: 0 auto;
-            border: 1px solid rgba(200, 157, 60, 0.35);
-            border-top: 5px solid var(--vermilion);
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.06);
+            padding: 26px 30px;
+            border-radius: 14px;
+            width: 100%;
+            max-width: 680px;
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            border-top: 4px solid var(--vermilion);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
         }
 
         .form-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 14px;
         }
 
         label {
             display: block;
-            margin-bottom: 6px;
-            color: var(--vermilion);
+            font-size: 0.82rem;
             font-weight: 500;
-            font-size: 0.9rem;
+            color: var(--vermilion);
+            margin-bottom: 4px;
         }
 
         input, select, textarea {
             width: 100%;
-            padding: 12px 14px;
+            padding: 9px 12px;
             border: 1px solid #D8CFC4;
-            border-radius: 8px;
-            box-sizing: border-box;
+            border-radius: 6px;
             font-family: 'Poppins', sans-serif;
-            font-size: 0.95rem;
-            background-color: var(--ivory);
-            transition: border-color 0.3s;
+            font-size: 0.88rem;
+            background: var(--ivory);
         }
 
         input:focus, select:focus, textarea:focus {
             outline: none;
             border-color: var(--saffron);
-            background-color: white;
+            background: white;
         }
 
-        button.btn-book {
-            background: linear-gradient(135deg, var(--vermilion), var(--vermilion-light));
-            color: var(--gold);
+        .btn-book {
             width: 100%;
-            padding: 16px;
+            background: linear-gradient(135deg, var(--vermilion), #9E1B1B);
+            color: var(--gold);
             border: none;
+            padding: 12px;
             border-radius: 8px;
             font-family: 'Cinzel', serif;
-            font-size: 1.15rem;
+            font-size: 1.05rem;
             font-weight: 600;
-            letter-spacing: 1px;
             cursor: pointer;
-            margin-top: 10px;
-            transition: transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 6px 18px rgba(122, 20, 20, 0.25);
+            letter-spacing: 0.5px;
         }
 
-        button.btn-book:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 24px rgba(122, 20, 20, 0.35);
-        }
-
-        /* --- FOOTER --- */
+        /* --- 4. COMPACT FOOTER --- */
         footer {
-            background-color: #221313;
-            color: #E6DDD3;
-            text-align: center;
-            padding: 45px 20px;
-            margin-top: 80px;
-            border-top: 4px solid var(--gold);
-        }
-
-        footer h4 {
-            color: var(--gold);
-            font-size: 1.4rem;
-            margin-bottom: 10px;
-        }
-
-        footer p {
-            margin: 6px 0;
-            font-size: 0.9rem;
+            background: #221313;
             color: #C7BBB0;
+            text-align: center;
+            padding: 8px 15px;
+            font-size: 0.78rem;
+            border-top: 2px solid var(--gold);
+            flex-shrink: 0;
         }
 
-        /* --- FLOATING WHATSAPP --- */
-        .float-wa {
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
-            background-color: var(--whatsapp);
-            color: white;
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-            z-index: 999;
-            text-decoration: none;
-            transition: transform 0.3s;
-        }
-
-        .float-wa:hover {
-            transform: scale(1.1);
+        footer span {
+            color: var(--gold);
         }
 
         /* --- MOBILE RESPONSIVE --- */
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
+            body {
+                height: auto;
+                min-height: 100vh;
+                overflow: auto;
+            }
             nav {
                 flex-direction: column;
-                gap: 10px;
+                gap: 8px;
+                padding: 10px 15px;
             }
             .brand {
                 text-align: center;
             }
-            .hero-content h2 {
-                font-size: 2.3rem;
+            .nav-tabs {
+                flex-wrap: wrap;
+                justify-content: center;
             }
-            .booking-section, .contact-container {
-                padding: 25px 20px;
+            .tab-btn {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+            .rooms-grid {
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            }
+            .contact-grid, .form-grid {
+                grid-template-columns: 1fr;
+            }
+            #home {
+                min-height: 70vh;
+                padding: 20px;
+                background-size: cover; /* Prevents squishing on narrow mobile screens */
+            }
+            .hero-box h2 {
+                font-size: 1.8rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation -->
+    <!-- 1. KAMAKHYA DEVI MANTRA AT THE TOP -->
+    <div class="mantra-bar">
+        ॥ कामाख्ये कामसम्पन्ने कामेश्वरि हरप्रिये। कामनां देहि मे नित्यं कामेश्वरि नमोऽस्तु ते ॥
+    </div>
+
+    <!-- 2. COMPACT NAVIGATION WITH TABS -->
     <nav>
         <div class="brand">
             <h1>Puspanjali Guest House</h1>
-            <p>Nilachal Hill • Maa Kamakhya</p>
+            <p>Nilachal Hill • Near Maa Kamakhya Temple</p>
         </div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#rooms">Rooms</a></li>
-            <li><a href="#visit">Location</a></li>
-            <li><a href="#book">Book Stay</a></li>
-        </ul>
+        <div class="nav-tabs">
+            <button class="tab-btn active" onclick="openTab('home', this)"><i class="fas fa-om"></i> Home</button>
+            <button class="tab-btn" onclick="openTab('rooms', this)"><i class="fas fa-bed"></i> Our Rooms</button>
+            <button class="tab-btn" onclick="openTab('visit', this)"><i class="fas fa-map-marker-alt"></i> Location</button>
+            <button class="tab-btn" onclick="openTab('book', this)"><i class="fab fa-whatsapp"></i> Book Stay</button>
+        </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <span class="sacred-chant">ॐ जय माँ कामाख्या</span>
-            <h2>A Sacred & Peaceful Retreat at Nilachal Hill</h2>
-            <p>Peace • Devotion • Homely Comfort — Just Steps Away from Maa Kamakhya Temple</p>
-            <a href="#book" class="hero-btn">Inquire & Reserve</a>
-        </div>
-    </section>
+    <!-- 3. SINGLE-SCREEN MAIN VIEW -->
+    <main>
 
-    <div class="container">
-        
-        <!-- Welcome Message -->
-        <div class="welcome-box">
-            <i class="fas fa-om"></i>
-            <p>
-                <strong>Namaskar!</strong> Welcome to <strong>Puspanjali Guest House</strong>. 
-                Nestled in the divine surroundings of Nilachal Hill, just a short walk from the holy Maa Kamakhya Temple, 
-                we offer pilgrims, families, and spiritual seekers a clean, serene, and welcoming sanctuary during their sacred darshan.
-            </p>
-        </div>
-
-        <!-- Rooms Section -->
-        <section id="rooms">
-            <div class="section-header">
-                <h3>Our Sacred Stays</h3>
-                <div class="divider">
-                    <span></span><i class="fas fa-spa"></i><span></span>
+        <!-- TAB 1: HOME -->
+        <section id="home" class="tab-section active">
+            <div class="hero-box">
+                <i class="fas fa-om om-icon"></i>
+                <h2>A Divine & Peaceful Stay at Nilachal Hill</h2>
+                <p>
+                    <strong>Namaskar!</strong> Welcome to Puspanjali Guest House — just steps away from the holy Maa Kamakhya Temple. 
+                    We offer pilgrims, families, and devotees a clean, serene, and homely sanctuary during their sacred darshan.
+                </p>
+                <div class="hero-actions">
+                    <button class="btn-gold" onclick="openTab('rooms', document.querySelectorAll('.tab-btn')[1])">View Our Rooms</button>
+                    <button class="btn-outline" onclick="openTab('book', document.querySelectorAll('.tab-btn')[3])">Inquire on WhatsApp</button>
                 </div>
-                <p class="section-subtitle">Clean, quiet, and comfortable rooms designed for rest and devotion.</p>
             </div>
+        </section>
 
-            <div class="season-notice">
-                <i class="fas fa-info-circle"></i> <strong>Note on Tariffs:</strong> Room rates vary according to the season and auspicious festivals (such as Ambubachi Mela, Navaratri & Durga Puja). Please inquire via WhatsApp or the form below for current availability and rates.
+        <!-- TAB 2: ROOMS -->
+        <section id="rooms" class="tab-section">
+            <div class="section-top">
+                <h3>Our Sacred Stays</h3>
+                <div class="season-pill">
+                    <i class="fas fa-info-circle"></i> Room tariffs vary by season & festivals (Ambubachi Mela, Navaratri, Durga Puja). Inquire for current rates.
+                </div>
             </div>
 
             <div class="rooms-grid">
-                
                 <!-- Room 1 -->
                 <div class="room-card">
                     <div class="room-image">
-                        <img src="economy_single.jpg" alt="Single Bed Economy Room">
+                        <img src="economy_single.jpg" alt="Single Bed Economy">
                         <span class="room-badge">Non-AC</span>
                     </div>
-                    <div class="room-details">
+                    <div class="room-body">
                         <div>
                             <h4>Single Bed Economy</h4>
                             <ul class="room-features">
@@ -638,37 +600,37 @@
                                 <li><i class="fas fa-pray"></i> Ideal for Solo Pilgrims</li>
                             </ul>
                         </div>
-                        <a href="#book" class="inquire-btn" onclick="selectRoom('Single Bed Economy (Non-AC)')">Check Rate & Book</a>
+                        <button class="inquire-btn" onclick="selectRoom('Single Bed Economy (Non-AC)')">Check Rate & Book</button>
                     </div>
                 </div>
 
                 <!-- Room 2 -->
                 <div class="room-card">
                     <div class="room-image">
-                        <img src="economy_double.jpg" alt="Double Bed Economy Room">
+                        <img src="economy_double.jpg" alt="Double Bed Economy">
                         <span class="room-badge">Non-AC</span>
                     </div>
-                    <div class="room-details">
+                    <div class="room-body">
                         <div>
                             <h4>Double Bed Economy</h4>
                             <ul class="room-features">
                                 <li><i class="fas fa-bed"></i> 1 Double Bed</li>
                                 <li><i class="fas fa-wind"></i> Well-Ventilated Non-AC</li>
                                 <li><i class="fas fa-wifi"></i> Free Wi-Fi Available</li>
-                                <li><i class="fas fa-users"></i> Ideal for Families & Devotees</li>
+                                <li><i class="fas fa-users"></i> For Families & Devotees</li>
                             </ul>
                         </div>
-                        <a href="#book" class="inquire-btn" onclick="selectRoom('Double Bed Economy (Non-AC)')">Check Rate & Book</a>
+                        <button class="inquire-btn" onclick="selectRoom('Double Bed Economy (Non-AC)')">Check Rate & Book</button>
                     </div>
                 </div>
 
                 <!-- Room 3 -->
                 <div class="room-card">
                     <div class="room-image">
-                        <img src="deluxe_single.jpg" alt="Single Bed Deluxe Room">
+                        <img src="deluxe_single.jpg" alt="Single Bed Deluxe">
                         <span class="room-badge">AC Room</span>
                     </div>
-                    <div class="room-details">
+                    <div class="room-body">
                         <div>
                             <h4>Single Bed Deluxe</h4>
                             <ul class="room-features">
@@ -678,17 +640,17 @@
                                 <li><i class="fas fa-pray"></i> Peaceful Solo Stay</li>
                             </ul>
                         </div>
-                        <a href="#book" class="inquire-btn" onclick="selectRoom('Single Bed Deluxe (AC)')">Check Rate & Book</a>
+                        <button class="inquire-btn" onclick="selectRoom('Single Bed Deluxe (AC)')">Check Rate & Book</button>
                     </div>
                 </div>
 
                 <!-- Room 4 -->
                 <div class="room-card">
                     <div class="room-image">
-                        <img src="deluxe_double.jpg" alt="Double Bed Deluxe Room">
+                        <img src="deluxe_double.jpg" alt="Double Bed Deluxe">
                         <span class="room-badge">AC Room</span>
                     </div>
-                    <div class="room-details">
+                    <div class="room-body">
                         <div>
                             <h4>Double Bed Deluxe</h4>
                             <ul class="room-features">
@@ -698,25 +660,19 @@
                                 <li><i class="fas fa-users"></i> Spacious Family Comfort</li>
                             </ul>
                         </div>
-                        <a href="#book" class="inquire-btn" onclick="selectRoom('Double Bed Deluxe (AC)')">Check Rate & Book</a>
+                        <button class="inquire-btn" onclick="selectRoom('Double Bed Deluxe (AC)')">Check Rate & Book</button>
                     </div>
                 </div>
-
             </div>
         </section>
 
-        <!-- Contact & Map Section -->
-        <section id="visit" style="margin-top: 80px;">
-            <div class="section-header">
+        <!-- TAB 3: LOCATION & CONTACT -->
+        <section id="visit" class="tab-section">
+            <div class="section-top">
                 <h3>Visit Us</h3>
-                <div class="divider">
-                    <span></span><i class="fas fa-map-marker-alt"></i><span></span>
-                </div>
-                <p class="section-subtitle">Conveniently located near the sacred Maa Kamakhya Temple premises.</p>
             </div>
-
-            <div class="contact-container">
-                <div class="contact-info">
+            <div class="contact-grid">
+                <div>
                     <div class="contact-item">
                         <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
                         <div>
@@ -726,12 +682,12 @@
                             Guwahati, Assam
                         </div>
                     </div>
-                    
+
                     <div class="contact-item">
                         <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
                         <div>
                             <strong>Phone / WhatsApp</strong>
-                            <a href="tel:+918435832929" style="font-size: 1.15rem;">+91 84358 32929</a>
+                            <a href="tel:+918435832929">+91 84358 32929</a>
                         </div>
                     </div>
 
@@ -744,7 +700,7 @@
                     </div>
 
                     <a href="https://wa.me/918435832929" class="whatsapp-btn" target="_blank">
-                        <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                        <i class="fab fa-whatsapp"></i> Chat Directly on WhatsApp
                     </a>
                 </div>
 
@@ -761,17 +717,12 @@
             </div>
         </section>
 
-        <!-- Booking Section -->
-        <section id="book" style="margin-top: 80px;">
-            <div class="section-header">
+        <!-- TAB 4: BOOKING FORM -->
+        <section id="book" class="tab-section">
+            <div class="section-top">
                 <h3>Inquire & Book Your Stay</h3>
-                <div class="divider">
-                    <span></span><i class="fas fa-hands-praying"></i><span></span>
-                </div>
-                <p class="section-subtitle">Send your dates and room preference directly to our WhatsApp for current tariff and instant confirmation.</p>
             </div>
-
-            <div class="booking-section">
+            <div class="booking-card">
                 <form id="bookingForm" onsubmit="handleBooking(event)">
                     <div class="form-grid">
                         <div class="form-group">
@@ -802,7 +753,7 @@
 
                     <div class="form-group">
                         <label for="message">Message / Number of Guests (Optional)</label>
-                        <textarea id="message" rows="3" placeholder="Mention number of guests, nights of stay, or any special requests..."></textarea>
+                        <textarea id="message" rows="2" placeholder="Number of guests, nights of stay, or special requests..."></textarea>
                     </div>
 
                     <button type="submit" class="btn-book">
@@ -812,28 +763,30 @@
             </div>
         </section>
 
-    </div>
+    </main>
 
-    <!-- Footer -->
+    <!-- 4. COMPACT FOOTER -->
     <footer>
-        <h4>Puspanjali Guest House</h4>
-        <p>Near Maa Kamakhya Temple, Nilachal Hill, Guwahati, Assam</p>
-        <p>Phone: +91 84358 32929 &nbsp;|&nbsp; Email: puspanjalikamakhya@gmail.com</p>
-        <p style="font-size: 0.8rem; color: #8A7E75; margin-top: 20px;">© 2026 Puspanjali Guest House. All Rights Reserved.</p>
+        <span>Puspanjali Guest House</span> • Near Maa Kamakhya Temple, Guwahati • +91 84358 32929 • © 2026
     </footer>
 
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/918435832929" class="float-wa" target="_blank" title="Chat on WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
     <script>
-        // Pre-selects the room when a guest clicks "Check Rate & Book" on a room card
-        function selectRoom(roomName) {
-            document.getElementById('room').value = roomName;
+        function openTab(tabId, btnElement) {
+            document.querySelectorAll('.tab-section').forEach(sec => sec.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+
+            document.getElementById(tabId).classList.add('active');
+            if (btnElement) {
+                btnElement.classList.add('active');
+            }
         }
 
-        // Sends booking inquiry to WhatsApp
+        function selectRoom(roomName) {
+            document.getElementById('room').value = roomName;
+            const bookTabBtn = document.querySelectorAll('.tab-btn')[3];
+            openTab('book', bookTabBtn);
+        }
+
         function handleBooking(event) {
             event.preventDefault();
 
@@ -852,8 +805,7 @@
                 "*Room Type:* " + encodeURIComponent(room) + "%0A" +
                 "*Note:* " + encodeURIComponent(userMsg);
 
-            var whatsappUrl = "https://wa.me/918435832929?text=" + whatsappMessage;
-            window.open(whatsappUrl, '_blank');
+            window.open("https://wa.me/918435832929?text=" + whatsappMessage, '_blank');
         }
     </script>
 
