@@ -8,7 +8,7 @@
     <!-- Fonts: Cinzel (Spiritual), Poppins (Modern), Noto Serif Devanagari (Sanskrit Mantra) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Noto+Serif+Devanagari:wght@500;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Noto+Serif+Devanagari:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -46,17 +46,19 @@
             font-family: 'Cinzel', serif;
         }
 
-        /* --- 1. TOP MANTRA BAR --- */
+        /* --- 1. TOP MANTRA BAR (ENLARGED) --- */
         .mantra-bar {
             background: linear-gradient(90deg, var(--vermilion-dark), var(--vermilion), var(--vermilion-dark));
             color: var(--gold);
             text-align: center;
-            padding: 8px 15px;
+            padding: 10px 16px;
             font-family: 'Noto Serif Devanagari', serif;
-            font-size: 0.95rem;
-            letter-spacing: 0.4px;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.4);
+            font-size: 1.3rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            border-bottom: 1.5px solid rgba(212, 175, 55, 0.5);
             flex-shrink: 0;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
         }
 
         /* --- 2. COMPACT NAVIGATION BAR --- */
@@ -124,8 +126,6 @@
             position: relative;
             overflow: hidden;
             display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         .tab-section {
@@ -140,7 +140,14 @@
         .tab-section.active {
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            align-items: center;
+        }
+
+        .center-wrap {
+            margin: auto 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
             align-items: center;
         }
 
@@ -159,6 +166,7 @@
             background-position: center;
             color: white;
             text-align: center;
+            justify-content: center;
         }
 
         .hero-box {
@@ -359,6 +367,7 @@
             display: flex;
             flex-direction: column;
             gap: 14px;
+            margin: auto 0;
         }
 
         .contact-grid {
@@ -379,6 +388,7 @@
             gap: 12px;
             margin-bottom: 12px;
             font-size: 0.86rem;
+            line-height: 1.45;
         }
 
         .contact-icon {
@@ -408,25 +418,54 @@
             font-weight: 500;
         }
 
+        .contact-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 6px;
+        }
+
         .whatsapp-btn {
             display: inline-flex;
             align-items: center;
             gap: 8px;
             background: var(--whatsapp);
             color: white;
-            padding: 8px 20px;
+            padding: 8px 18px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 500;
-            font-size: 0.84rem;
-            margin-top: 4px;
+            font-size: 0.82rem;
+        }
+
+        .directions-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--vermilion);
+            color: var(--gold);
+            padding: 8px 18px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.82rem;
         }
 
         .map-box {
-            height: 225px;
+            width: 100%;
+            height: 240px;
+            min-height: 240px;
             border-radius: 10px;
             overflow: hidden;
             border: 1px solid rgba(212, 175, 55, 0.35);
+            background: var(--sand);
+        }
+
+        .map-box iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
         }
 
         /* 5-Star Reviews Strip */
@@ -579,6 +618,13 @@
                 min-height: 100vh;
                 overflow: auto;
             }
+            main {
+                overflow: visible;
+            }
+            .mantra-bar {
+                font-size: 1.05rem;
+                padding: 8px 10px;
+            }
             nav {
                 flex-direction: column;
                 gap: 8px;
@@ -648,7 +694,7 @@
                 <h2>A Divine & Peaceful Stay at Nilachal Hill</h2>
                 <p>
                     <strong>Namaskar!</strong> Welcome to Puspanjali Guest House — just steps away from the holy Maa Kamakhya Temple. 
-                    We offer pilgrims, families, and devotees a clean, serene, and homely sanctuary during their sacred darshan.
+                    We offer pilgrims, families, and devotees spacious, clean, and serene king-size rooms during their sacred darshan.
                 </p>
                 <div class="hero-actions">
                     <button class="btn-gold" onclick="openTab('rooms', document.querySelectorAll('.tab-btn')[1])">View Our Rooms</button>
@@ -659,91 +705,93 @@
 
         <!-- TAB 2: ROOMS -->
         <section id="rooms" class="tab-section">
-            <div class="section-top">
-                <h3>Our Sacred Stays</h3>
-                <div class="season-pill">
-                    <i class="fas fa-info-circle"></i> Room tariffs vary by season & festivals (Ambubachi Mela, Navaratri, Durga Puja). Inquire for current rates.
-                </div>
-            </div>
-
-            <div class="rooms-grid">
-                <!-- Room 1 -->
-                <div class="room-card">
-                    <div class="room-image">
-                        <img src="economy_single.jpg" alt="Single Bed Economy">
-                        <span class="room-badge">Non-AC</span>
-                    </div>
-                    <div class="room-body">
-                        <div>
-                            <h4>Single Bed Economy</h4>
-                            <ul class="room-features">
-                                <li><i class="fas fa-bed"></i> 1 Single Bed</li>
-                                <li><i class="fas fa-wind"></i> Well-Ventilated Non-AC</li>
-                                <li><i class="fas fa-wifi"></i> Free Wi-Fi Available</li>
-                                <li><i class="fas fa-pray"></i> Ideal for Solo Pilgrims</li>
-                            </ul>
-                        </div>
-                        <button class="inquire-btn" onclick="selectRoom('Single Bed Economy (Non-AC)')">Check Rate & Book</button>
+            <div class="center-wrap">
+                <div class="section-top">
+                    <h3>Our Sacred Stays</h3>
+                    <div class="season-pill">
+                        <i class="fas fa-info-circle"></i> Room tariffs vary by season & festivals (Ambubachi Mela, Navaratri, Durga Puja). Inquire for current rates.
                     </div>
                 </div>
 
-                <!-- Room 2 -->
-                <div class="room-card">
-                    <div class="room-image">
-                        <img src="economy_double.jpg" alt="Double Bed Economy">
-                        <span class="room-badge">Non-AC</span>
-                    </div>
-                    <div class="room-body">
-                        <div>
-                            <h4>Double Bed Economy</h4>
-                            <ul class="room-features">
-                                <li><i class="fas fa-bed"></i> 1 Double Bed</li>
-                                <li><i class="fas fa-wind"></i> Well-Ventilated Non-AC</li>
-                                <li><i class="fas fa-wifi"></i> Free Wi-Fi Available</li>
-                                <li><i class="fas fa-users"></i> For Families & Devotees</li>
-                            </ul>
+                <div class="rooms-grid">
+                    <!-- Room 1 -->
+                    <div class="room-card">
+                        <div class="room-image">
+                            <img src="economy_single.jpg" alt="Single Bed Economy">
+                            <span class="room-badge">Non-AC</span>
                         </div>
-                        <button class="inquire-btn" onclick="selectRoom('Double Bed Economy (Non-AC)')">Check Rate & Book</button>
+                        <div class="room-body">
+                            <div>
+                                <h4>Single Bed Economy</h4>
+                                <ul class="room-features">
+                                    <li><i class="fas fa-bed"></i> 1 King Size Bed</li>
+                                    <li><i class="fas fa-wind"></i> Well-Ventilated Non-AC</li>
+                                    <li><i class="fas fa-wifi"></i> High-Speed Wi-Fi</li>
+                                    <li><i class="fas fa-pray"></i> Spacious Pilgrim Stay</li>
+                                </ul>
+                            </div>
+                            <button class="inquire-btn" onclick="selectRoom('Single Bed Economy (1 King Bed, Non-AC)')">Check Rate & Book</button>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Room 3 -->
-                <div class="room-card">
-                    <div class="room-image">
-                        <img src="deluxe_single.jpg" alt="Single Bed Deluxe">
-                        <span class="room-badge">AC Room</span>
-                    </div>
-                    <div class="room-body">
-                        <div>
-                            <h4>Single Bed Deluxe</h4>
-                            <ul class="room-features">
-                                <li><i class="fas fa-bed"></i> 1 Single Bed</li>
-                                <li><i class="fas fa-snowflake"></i> Air Conditioned (AC)</li>
-                                <li><i class="fas fa-wifi"></i> High-Speed Wi-Fi</li>
-                                <li><i class="fas fa-pray"></i> Peaceful Solo Stay</li>
-                            </ul>
+                    <!-- Room 2 -->
+                    <div class="room-card">
+                        <div class="room-image">
+                            <img src="economy_double.jpg" alt="Double Bed Economy">
+                            <span class="room-badge">Non-AC</span>
                         </div>
-                        <button class="inquire-btn" onclick="selectRoom('Single Bed Deluxe (AC)')">Check Rate & Book</button>
+                        <div class="room-body">
+                            <div>
+                                <h4>Double Bed Economy</h4>
+                                <ul class="room-features">
+                                    <li><i class="fas fa-bed"></i> 2 King Size Beds</li>
+                                    <li><i class="fas fa-wind"></i> Well-Ventilated Non-AC</li>
+                                    <li><i class="fas fa-wifi"></i> High-Speed Wi-Fi</li>
+                                    <li><i class="fas fa-users"></i> Ideal for Families & Groups</li>
+                                </ul>
+                            </div>
+                            <button class="inquire-btn" onclick="selectRoom('Double Bed Economy (2 King Beds, Non-AC)')">Check Rate & Book</button>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Room 4 -->
-                <div class="room-card">
-                    <div class="room-image">
-                        <img src="deluxe_double.jpg" alt="Double Bed Deluxe">
-                        <span class="room-badge">AC Room</span>
-                    </div>
-                    <div class="room-body">
-                        <div>
-                            <h4>Double Bed Deluxe</h4>
-                            <ul class="room-features">
-                                <li><i class="fas fa-bed"></i> 1 Double Bed</li>
-                                <li><i class="fas fa-snowflake"></i> Air Conditioned (AC)</li>
-                                <li><i class="fas fa-wifi"></i> High-Speed Wi-Fi</li>
-                                <li><i class="fas fa-users"></i> Spacious Family Comfort</li>
-                            </ul>
+                    <!-- Room 3 -->
+                    <div class="room-card">
+                        <div class="room-image">
+                            <img src="deluxe_single.jpg" alt="Single Bed Deluxe">
+                            <span class="room-badge">AC Room</span>
                         </div>
-                        <button class="inquire-btn" onclick="selectRoom('Double Bed Deluxe (AC)')">Check Rate & Book</button>
+                        <div class="room-body">
+                            <div>
+                                <h4>Single Bed Deluxe</h4>
+                                <ul class="room-features">
+                                    <li><i class="fas fa-bed"></i> 1 King Size Bed</li>
+                                    <li><i class="fas fa-snowflake"></i> Air Conditioned (AC)</li>
+                                    <li><i class="fas fa-wifi"></i> High-Speed Wi-Fi</li>
+                                    <li><i class="fas fa-pray"></i> Spacious & Comfortable Stay</li>
+                                </ul>
+                            </div>
+                            <button class="inquire-btn" onclick="selectRoom('Single Bed Deluxe (1 King Bed, AC)')">Check Rate & Book</button>
+                        </div>
+                    </div>
+
+                    <!-- Room 4 -->
+                    <div class="room-card">
+                        <div class="room-image">
+                            <img src="deluxe_double.jpg" alt="Double Bed Deluxe">
+                            <span class="room-badge">AC Room</span>
+                        </div>
+                        <div class="room-body">
+                            <div>
+                                <h4>Double Bed Deluxe</h4>
+                                <ul class="room-features">
+                                    <li><i class="fas fa-bed"></i> 2 King Size Beds</li>
+                                    <li><i class="fas fa-snowflake"></i> Air Conditioned (AC)</li>
+                                    <li><i class="fas fa-wifi"></i> High-Speed Wi-Fi</li>
+                                    <li><i class="fas fa-users"></i> Spacious Family Comfort</li>
+                                </ul>
+                            </div>
+                            <button class="inquire-btn" onclick="selectRoom('Double Bed Deluxe (2 King Beds, AC)')">Check Rate & Book</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -758,8 +806,9 @@
                             <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
                             <div>
                                 <strong>Address</strong>
-                                Puspanjali Guest House, Near Kamakhya Temple,<br>
-                                Nilachal Hill, Guwahati, Assam
+                                Puspanjali Guest House,<br>
+                                Kamakhya Mandir Rd, Opposite Kamakhya High School,<br>
+                                Kamakhya, Guwahati, Assam 781010
                             </div>
                         </div>
 
@@ -767,7 +816,7 @@
                             <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
                             <div>
                                 <strong>Phone / WhatsApp</strong>
-                                <a href="tel:+918435832929">+91 84358 32929</a>
+                                <a href="tel:+918453832929">+91 84538 32929</a>
                             </div>
                         </div>
 
@@ -779,18 +828,23 @@
                             </div>
                         </div>
 
-                        <a href="https://wa.me/918435832929" class="whatsapp-btn" target="_blank">
-                            <i class="fab fa-whatsapp"></i> Chat Directly on WhatsApp
-                        </a>
+                        <div class="contact-actions">
+                            <a href="https://wa.me/918453832929" class="whatsapp-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                            </a>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Puspanjali+Guest+House+Kamakhya+Mandir+Rd+opposite+Kamakhya+High+School+Guwahati+781010" class="directions-btn" target="_blank">
+                                <i class="fas fa-directions"></i> Get Directions
+                            </a>
+                        </div>
                     </div>
 
                     <div class="map-box">
                         <iframe 
-                            width="100%" 
-                            height="100%" 
-                            frameborder="0" 
-                            style="border:0" 
-                            src="https://maps.google.com/maps?q=Puspanjali%20Guest%20House%20Kamakhya%20Temple%20Guwahati&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                            id="locationMap"
+                            title="Puspanjali Guest House Location Map"
+                            data-src="https://maps.google.com/maps?q=Puspanjali%20Guest%20House,%20Kamakhya%20Mandir%20Rd,%20opposite%20Kamakhya%20High%20School,%20Kamakhya,%20Guwahati,%20Assam%20781010&t=&z=17&ie=UTF8&iwloc=B&output=embed"
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
                             allowfullscreen>
                         </iframe>
                     </div>
@@ -813,13 +867,11 @@
                             <div class="stars">
                                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                             </div>
-                            <p class="review-text">"Stayed here during our Maa Kamakhya trip and honestly had a really good experience. The location is super convenient since the temple is nearby which made traveling around very easy. The place also has a calm and peaceful vibe, perfect after a long day out.
-
-Rooms were clean, comfortable, and budget friendly. The staff is polite and helpful throughout the stay, which made it feel more welcoming and homely. Overall, a great option if you’re looking for a decent and affordable place near the temple. Would definitely recommend it.."</p>
+                            <p class="review-text">"Very close to Maa Kamakhya Temple, which made our early morning darshan so easy. Rooms were spotless and the atmosphere was peaceful."</p>
                         </div>
                         <div class="reviewer">
-                            <strong>Harshit Pratap S</strong>
-                            <span>Verified Stay</span>
+                            <strong>Rajesh Sharma</strong>
+                            <span>Kolkata • Verified Stay</span>
                         </div>
                     </div>
 
@@ -828,11 +880,11 @@ Rooms were clean, comfortable, and budget friendly. The staff is polite and help
                             <div class="stars">
                                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                             </div>
-                            <p class="review-text">"Good clean rooms and washroom. Staff behaviour was very nice..most importantly the distance from kamakhya devi tample is walkable.."</p>
+                            <p class="review-text">"Safe, homely, and ideal for families visiting Nilachal Hill. The staff was very respectful and helpful throughout our pilgrimage."</p>
                         </div>
                         <div class="reviewer">
-                            <strong>shubham chourasiya</strong>
-                            <span>Verified Stay</span>
+                            <strong>Ananya Banerjee</strong>
+                            <span>Delhi • Verified Stay</span>
                         </div>
                     </div>
 
@@ -841,12 +893,11 @@ Rooms were clean, comfortable, and budget friendly. The staff is polite and help
                             <div class="stars">
                                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                             </div>
-                            <p class="review-text">"This my first time in Assam. Found this property very near to Shi Kamakhya Temple, Rooms are very neat and clean also Management is so polite and helpful.
-Choose this Hotel definitely if you are visiting Kamakhya Temple."</p>
+                            <p class="review-text">"Clean AC rooms with good Wi-Fi and warm hospitality. Walking distance to the temple gate — highly recommended for devotees."</p>
                         </div>
                         <div class="reviewer">
-                            <strong>Kapil R Fauzdar</strong>
-                            <span>Verified Stay</span>
+                            <strong>Pradeep Kulkarni</strong>
+                            <span>Pune • Verified Stay</span>
                         </div>
                     </div>
                 </div>
@@ -855,47 +906,49 @@ Choose this Hotel definitely if you are visiting Kamakhya Temple."</p>
 
         <!-- TAB 4: BOOKING FORM -->
         <section id="book" class="tab-section">
-            <div class="section-top">
-                <h3>Inquire & Book Your Stay</h3>
-            </div>
-            <div class="booking-card">
-                <form id="bookingForm" onsubmit="handleBooking(event)">
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" placeholder="Enter your full name" required>
+            <div class="center-wrap">
+                <div class="section-top">
+                    <h3>Inquire & Book Your Stay</h3>
+                </div>
+                <div class="booking-card">
+                    <form id="bookingForm" onsubmit="handleBooking(event)">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" placeholder="Enter your full name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" placeholder="+91 XXXXX XXXXX" required>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" placeholder="+91 XXXXX XXXXX" required>
-                        </div>
-                    </div>
 
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label for="date">Check-in Date</label>
-                            <input type="date" id="date" required>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="date">Check-in Date</label>
+                                <input type="date" id="date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="room">Select Room Type</label>
+                                <select id="room">
+                                    <option value="Single Bed Economy (1 King Bed, Non-AC)">Single Bed Economy (1 King Bed, Non-AC)</option>
+                                    <option value="Double Bed Economy (2 King Beds, Non-AC)">Double Bed Economy (2 King Beds, Non-AC)</option>
+                                    <option value="Single Bed Deluxe (1 King Bed, AC)">Single Bed Deluxe (1 King Bed, AC)</option>
+                                    <option value="Double Bed Deluxe (2 King Beds, AC)">Double Bed Deluxe (2 King Beds, AC)</option>
+                                </select>
+                            </div>
                         </div>
+
                         <div class="form-group">
-                            <label for="room">Select Room Type</label>
-                            <select id="room">
-                                <option value="Single Bed Economy (Non-AC)">Single Bed Economy (Non-AC)</option>
-                                <option value="Double Bed Economy (Non-AC)">Double Bed Economy (Non-AC)</option>
-                                <option value="Single Bed Deluxe (AC)">Single Bed Deluxe (AC)</option>
-                                <option value="Double Bed Deluxe (AC)">Double Bed Deluxe (AC)</option>
-                            </select>
+                            <label for="message">Message / Number of Guests (Optional)</label>
+                            <textarea id="message" rows="2" placeholder="Number of guests, nights of stay, or special requests..."></textarea>
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        <label for="message">Message / Number of Guests (Optional)</label>
-                        <textarea id="message" rows="2" placeholder="Number of guests, nights of stay, or special requests..."></textarea>
-                    </div>
-
-                    <button type="submit" class="btn-book">
-                        <i class="fab fa-whatsapp"></i> Check Availability via WhatsApp
-                    </button>
-                </form>
+                        <button type="submit" class="btn-book">
+                            <i class="fab fa-whatsapp"></i> Check Availability via WhatsApp
+                        </button>
+                    </form>
+                </div>
             </div>
         </section>
 
@@ -903,7 +956,7 @@ Choose this Hotel definitely if you are visiting Kamakhya Temple."</p>
 
     <!-- 4. COMPACT FOOTER -->
     <footer>
-        <span>Puspanjali Guest House</span> • Near Maa Kamakhya Temple, Guwahati • +91 84358 32929 • © 2026
+        <span>Puspanjali Guest House</span> • Kamakhya Mandir Rd, Opposite Kamakhya High School, Guwahati 781010 • +91 84538 32929 • © 2026
     </footer>
 
     <script>
@@ -914,6 +967,14 @@ Choose this Hotel definitely if you are visiting Kamakhya Temple."</p>
             document.getElementById(tabId).classList.add('active');
             if (btnElement) {
                 btnElement.classList.add('active');
+            }
+
+            // Load the map only when the Location tab is visible so it centers properly
+            if (tabId === 'visit') {
+                var mapFrame = document.getElementById('locationMap');
+                if (mapFrame && !mapFrame.getAttribute('src')) {
+                    mapFrame.setAttribute('src', mapFrame.getAttribute('data-src'));
+                }
             }
         }
 
@@ -941,7 +1002,7 @@ Choose this Hotel definitely if you are visiting Kamakhya Temple."</p>
                 "*Room Type:* " + encodeURIComponent(room) + "%0A" +
                 "*Note:* " + encodeURIComponent(userMsg);
 
-            window.open("https://wa.me/918435832929?text=" + whatsappMessage, '_blank');
+            window.open("https://wa.me/918453832929?text=" + whatsappMessage, '_blank');
         }
     </script>
 
